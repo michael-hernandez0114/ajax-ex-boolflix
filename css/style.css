@@ -3,3 +3,24 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+header {
+    background-color: darkgray;
+}
+
+#submit-search {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.card-select {
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid blue;
+}

@@ -9,10 +9,25 @@
     </head>
     <body>
 
+        <header>
+            <input id="input-search" placeholder="Search for films">
+            <button id="submit-search">Submit</button>
+        </header>
+        <div class="card-select">
+
+        </div>
 
 
 
+        <script id="card-template" type="text/x-handlebars-template">
+            <div class="card">
+                <span>{{titolo}}</span>
+                <span>{{titoloOriginale}}</span>
+                <span>{{lingua}}</span>
+                <span>{{voto}}</span>
+            </div>
 
-    <script src='js/main.js'></script>
+        </script>
+        <script src='js/main.js'></script>
     </body>
 </html>
