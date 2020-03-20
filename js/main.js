@@ -6,8 +6,10 @@ $(document).ready(function() {
     $('#input-search').keyup(function(event){
         if(event.keyCode == 13) {
             $('#card-container').empty();
-            search('movie');
-            search('tv');
+            var searchInput = $('#input-search').val();
+            $('#input-search').val('');
+            search('movie', searchInput);
+            search('tv', searchInput);
         }
     });
 
@@ -35,7 +37,8 @@ $(document).ready(function() {
             method : 'GET',
             success: function(data) {
                 //console.log(data);
-                //console.log(data.results);
+                console.log('Results for ' + category);
+                console.log(data.results);
                 var results = data.results;
                 processResults(category, results)
             },
@@ -47,18 +50,34 @@ $(document).ready(function() {
 
     function processResults(category, resultsObj) {
 
-        for (var i = 0; i < resultsObj.length; i++) {
-            var singleObj = {
-                            titolo: resultsObj[i].title,
-                            titoloOriginale: resultsObj[i].original_title,
-                            lingua: resultsObj[i].original_language,
-                            voto: resultsObj[i].vote_average,
+        if(category === 'movie') {
+            for (var i = 0; i < resultsObj.length; i++) {
+                var filmObj = {
+                                titolo: resultsObj[i].title,
+                                titoloOriginale: resultsObj[i].original_title,
+                                lingua: resultsObj[i].original_language,
+                                voto: resultsObj[i].vote_average,
+                            }
+                console.log("Adding this film obj:" + filmObj);
+                var filmsToShow = template(filmObj);
+                $('#card-container').append(filmsToShow);
 
-                        }
+            }
+        }
+        if(category === 'tv') {
+            for (var i = 0; i < resultsObj.length; i++) {
+                var tvObj = {
+                                titolo: resultsObj[i].name,
+                                titoloOriginale: resultsObj[i].original_name,
+                                lingua: resultsObj[i].original_language,
+                                voto: resultsObj[i].vote_average,
 
-            var objToShow = template(singleObj);
-            $('#card-container').append(objToShow);
+                            }
+                console.log("Adding this tv obj:" + tvObj);
+                var tvsToShow = template(tvObj);
+                $('#card-container').append(tvsToShow);
 
+            }
         }
     }
 
