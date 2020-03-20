@@ -3,8 +3,20 @@ $(document).ready(function() {
     var source = $('#card-template').html();
     var template = Handlebars.compile(source);
 
+    $('#input-search').keyup(function(event){
+        if(event.keyCode == 13) {
+            search();
+        }
+
+    });
+
     //console.log(template);
     $('#submit-search').click(function(event){
+        search();
+    });
+
+    function search() {
+        $('#card-container').empty();
         var searchInput = $('#input-search').val();
         $('#input-search').val('');
         console.log("User submitted: " + searchInput);
@@ -16,6 +28,7 @@ $(document).ready(function() {
             },
             method : 'GET',
             success: function(data) {
+                console.log(data);
                 console.log(data.results);
 
                 var filmList = data.results;
@@ -32,7 +45,7 @@ $(document).ready(function() {
                     }
 
                     var filmsToShow = template(film);
-                    $('.card-select').append(filmsToShow);
+                    $('#card-container').append(filmsToShow);
 
                 }
 
@@ -40,10 +53,8 @@ $(document).ready(function() {
             error: function() {
             alert('Failed to call API')
             }
-
-
         });
-    })
+    }
 
 
 })
