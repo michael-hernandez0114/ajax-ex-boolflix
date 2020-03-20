@@ -24,3 +24,13 @@ header {
     margin: 10px;
     border: 1px solid blue;
 }
+
+.fas.fa-star {
+    color: yellow;
+    font-size: 10px;
+}
+
+.far.fa-star {
+    color: none;
+    font-size: 10px;
+}

@@ -56,9 +56,12 @@ $(document).ready(function() {
                                 titolo: resultsObj[i].title,
                                 titoloOriginale: resultsObj[i].original_title,
                                 lingua: resultsObj[i].original_language,
-                                voto: resultsObj[i].vote_average,
+                                voto: showStelle(resultsObj[i].vote_average),
+                                voteNumber: resultsObj[i].vote_average
+
                             }
                 console.log("Adding this film obj:" + filmObj);
+                console.log("filmObj voto has: " + filmObj.voto);
                 var filmsToShow = template(filmObj);
                 $('#card-container').append(filmsToShow);
 
@@ -70,15 +73,49 @@ $(document).ready(function() {
                                 titolo: resultsObj[i].name,
                                 titoloOriginale: resultsObj[i].original_name,
                                 lingua: resultsObj[i].original_language,
-                                voto: resultsObj[i].vote_average,
+                                voto: showStelle(resultsObj[i].vote_average),
+                                voteNumber: resultsObj[i].vote_average
 
                             }
                 console.log("Adding this tv obj:" + tvObj);
+                console.log("tvObj voto has: " + tvObj.voto);
                 var tvsToShow = template(tvObj);
                 $('#card-container').append(tvsToShow);
 
             }
         }
+    }
+
+    function showStelle(votes) {
+
+        var totalStars = Math.ceil(votes / 2);
+        var starHTML;
+
+        console.log('This film/tv has this many stars: ' + totalStars);
+
+        switch(totalStars) {
+            case 1:
+            starHTML = '<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            break;
+            case 2:
+            starHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            break
+            case 3:
+            starHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            break
+            case 4:
+            starHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>';
+            break
+            case 5:
+            starHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            break
+            default:
+            starHTML = '<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+
+        }
+
+        return starHTML;
+
     }
 
 
