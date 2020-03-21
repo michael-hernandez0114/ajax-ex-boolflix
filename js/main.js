@@ -117,8 +117,9 @@ $(document).ready(function() {
 
     function languageOrFlag(lang) {
 
-        var filmTVLang = lang;
+        var filmTVLang;
         var htmlToDisplay;
+        var flagURL;
 
         if(lang === 'en') {
             filmTVLang = 'us';
@@ -126,28 +127,34 @@ $(document).ready(function() {
         else {
             filmTVLang = lang;
         }
-        var flagURL = 'https://www.countryflags.io/' + filmTVLang + '/flat/32.png';
 
-        console.log(flagURL);
+        if(filmTVLang === 'xx') {
+            htmlToDisplay = filmTVLang;
+        }
+        else {
+            flagURL = 'https://www.countryflags.io/' + filmTVLang + '/flat/32.png';
+            htmlToDisplay = '<img src=\"' + flagURL + '\">';
 
-        flagURL.onerror = function() {
-            console.log("made it to on error");
         }
 
+        return htmlToDisplay;
 
 /*
         $.ajax({
             url : flagURL,
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            },
             method : 'GET',
             success: function(data) {
                 //htmlToDisplay = '<img src=\"' + flagURL + '\">';
                 console.log("found flag! Returning img HTML: " + '<img src=\"' + flagURL + '\">');
             },
             error: function() {
-            alert('No flag found. Returning language code instead');
-            htmlToDisplay = '<span>' + lang + '</span>';
+            //alert('No flag found. Returning language code instead');
+            //htmlToDisplay = '<span>' + lang + '</span>';
             console.log("Inside error function: " + htmlToDisplay);
-            return htmlToDisplay;
+
             }
 
         })
@@ -156,4 +163,5 @@ $(document).ready(function() {
 
 
     }
+
 })
