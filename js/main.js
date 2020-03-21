@@ -19,7 +19,7 @@ $(document).ready(function() {
 
         var searchInput = $('#input-search').val();
         $('#input-search').val('');
-        console.log("User submitted: " + searchInput);
+        //console.log("User submitted: " + searchInput);
         search('movie', searchInput);
         search('tv', searchInput);
     });
@@ -32,13 +32,14 @@ $(document).ready(function() {
             url : baseURL + '/search/' + category,
             data: {
                 api_key: 'b1bf34ce942f162a150cd71faf814c6d',
-                query: searchFilter//'back to the future'
+                query: searchFilter,
+                language: 'it-IT'
             },
             method : 'GET',
             success: function(data) {
                 //console.log(data);
-                console.log('Results for ' + category);
-                console.log(data.results);
+                //console.log('Results for ' + category);
+                //console.log(data.results);
                 var results = data.results;
                 processResults(category, results)
             },
@@ -55,11 +56,11 @@ $(document).ready(function() {
                 var filmObj = {
                                 titolo: resultsObj[i].title,
                                 titoloOriginale: resultsObj[i].original_title,
-                                lingua: resultsObj[i].original_language,
+                                lingua: languageOrFlag(resultsObj[i].original_language),
                                 voto: showStelle(resultsObj[i].vote_average),
                             }
-                console.log("Adding this film obj:" + filmObj);
-                console.log("filmObj voto has: " + filmObj.voto);
+                //console.log("Adding this film obj:" + filmObj);
+                //console.log("filmObj voto has: " + filmObj.voto);
                 var filmsToShow = template(filmObj);
                 $('#card-container').append(filmsToShow);
 
@@ -70,11 +71,11 @@ $(document).ready(function() {
                 var tvObj = {
                                 titolo: resultsObj[i].name,
                                 titoloOriginale: resultsObj[i].original_name,
-                                lingua: resultsObj[i].original_language,
+                                lingua: languageOrFlag(resultsObj[i].original_language),
                                 voto: showStelle(resultsObj[i].vote_average),
                             }
-                console.log("Adding this tv obj:" + tvObj);
-                console.log("tvObj voto has: " + tvObj.voto);
+                //console.log("Adding this tv obj:" + tvObj);
+                //console.log("tvObj voto has: " + tvObj.voto);
                 var tvsToShow = template(tvObj);
                 $('#card-container').append(tvsToShow);
 
@@ -87,7 +88,7 @@ $(document).ready(function() {
         var totalStars = Math.ceil(votes / 2);
         var starHTML;
 
-        console.log('This film/tv has this many stars: ' + totalStars);
+        //console.log('This film/tv has this many stars: ' + totalStars);
 
         switch(totalStars) {
             case 1:
@@ -114,5 +115,45 @@ $(document).ready(function() {
 
     }
 
+    function languageOrFlag(lang) {
 
+        var filmTVLang = lang;
+        var htmlToDisplay;
+
+        if(lang === 'en') {
+            filmTVLang = 'us';
+        }
+        else {
+            filmTVLang = lang;
+        }
+        var flagURL = 'https://www.countryflags.io/' + filmTVLang + '/flat/32.png';
+
+        console.log(flagURL);
+
+        flagURL.onerror = function() {
+            console.log("made it to on error");
+        }
+
+
+/*
+        $.ajax({
+            url : flagURL,
+            method : 'GET',
+            success: function(data) {
+                //htmlToDisplay = '<img src=\"' + flagURL + '\">';
+                console.log("found flag! Returning img HTML: " + '<img src=\"' + flagURL + '\">');
+            },
+            error: function() {
+            alert('No flag found. Returning language code instead');
+            htmlToDisplay = '<span>' + lang + '</span>';
+            console.log("Inside error function: " + htmlToDisplay);
+            return htmlToDisplay;
+            }
+
+        })
+*/
+
+
+
+    }
 })
