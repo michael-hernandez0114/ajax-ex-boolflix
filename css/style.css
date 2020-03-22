@@ -22,6 +22,10 @@ header {
     border: 1px solid blue;
 }
 
+.card img {
+    object-fit: contain;
+}
+
 .fas.fa-star {
     color: yellow;
     font-size: 10px;

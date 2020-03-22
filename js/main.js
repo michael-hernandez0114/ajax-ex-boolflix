@@ -39,7 +39,7 @@ $(document).ready(function() {
             success: function(data) {
                 //console.log(data);
                 //console.log('Results for ' + category);
-                //console.log(data.results);
+                console.log(data.results);
                 var results = data.results;
                 processResults(category, results)
             },
@@ -54,6 +54,7 @@ $(document).ready(function() {
         if(category === 'movie') {
             for (var i = 0; i < resultsObj.length; i++) {
                 var filmObj = {
+                                posterURL: createPosterURL(resultsObj[i].poster_path),
                                 titolo: resultsObj[i].title,
                                 titoloOriginale: resultsObj[i].original_title,
                                 lingua: languageOrFlag(resultsObj[i].original_language),
@@ -69,6 +70,7 @@ $(document).ready(function() {
         if(category === 'tv') {
             for (var i = 0; i < resultsObj.length; i++) {
                 var tvObj = {
+                                posterURL: createPosterURL(resultsObj[i].poster_path),
                                 titolo: resultsObj[i].name,
                                 titoloOriginale: resultsObj[i].original_name,
                                 lingua: languageOrFlag(resultsObj[i].original_language),
@@ -112,6 +114,19 @@ $(document).ready(function() {
         }
 
         return starHTML;
+
+    }
+
+    function createPosterURL(posterURL) {
+        var baseImgURL = 'https://image.tmdb.org/t/p/';
+        var imgWidth = 'w342';
+        var fullImgURL = baseImgURL + imgWidth + posterURL;
+
+        console.log(fullImgURL);
+
+        return fullImgURL;
+
+
 
     }
 

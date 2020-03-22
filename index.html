@@ -11,7 +11,7 @@
     <body>
 
         <header>
-            <input id="input-search" placeholder="Search for films">
+            <input id="input-search" placeholder="Search for films or tv shows">
             <button id="submit-search">Submit</button>
         </header>
         <div id="card-container">
@@ -22,11 +22,12 @@
 
         <script id="card-template" type="text/x-handlebars-template">
             <div class="card">
+                <img src="{{posterURL}}" alt="">
                 <span>{{titolo}}</span>
                 <span>{{titoloOriginale}}</span>
                 <span>{{{lingua}}}</span>
                 <span>{{{voto}}}</span>
-                <img src="{{posterURL}}" alt="">
+
             </div>
 
         </script>
