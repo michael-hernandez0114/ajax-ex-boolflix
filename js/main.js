@@ -5,23 +5,35 @@ $(document).ready(function() {
 
     $('#input-search').keyup(function(event){
         if(event.keyCode == 13) {
-            $('#card-container').empty();
             var searchInput = $('#input-search').val();
-            $('#input-search').val('');
-            search('movie', searchInput);
-            search('tv', searchInput);
+
+            if(searchInput.length > 0) {
+                $('#card-container').empty();
+                $('#input-search').val('');
+                search('movie', searchInput);
+                search('tv', searchInput);
+            }
+            else {
+                alert("Please enter a value in the search bar");
+            }
         }
+
     });
 
     //console.log(template);
     $('#submit-search').click(function(event){
-        $('#card-container').empty();
-
         var searchInput = $('#input-search').val();
-        $('#input-search').val('');
-        //console.log("User submitted: " + searchInput);
-        search('movie', searchInput);
-        search('tv', searchInput);
+
+        if(searchInput > 0) {
+            $('#card-container').empty();
+            $('#input-search').val('');
+            search('movie', searchInput);
+            search('tv', searchInput);
+        }
+        else {
+            alert("Please enter a value in the search bar");
+        }
+
     });
 
     function search(category, searchFilter) {
@@ -118,9 +130,18 @@ $(document).ready(function() {
     }
 
     function createPosterURL(posterURL) {
-        var baseImgURL = 'https://image.tmdb.org/t/p/';
+
+        var baseImgURL = 'https://image.tmdb.org/t/p/';;
         var imgWidth = 'w342';
-        var fullImgURL = baseImgURL + imgWidth + posterURL;
+        var fullImgURL;
+
+        if(posterURL == null) {
+            fullImgURL = 'https://lascrucesfilmfest.com/wp-content/uploads/2018/01/no-poster-available.jpg';
+        }
+        else {
+            fullImgURL = baseImgURL + imgWidth + posterURL;
+        }
+
 
         console.log(fullImgURL);
 

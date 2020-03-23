@@ -22,8 +22,11 @@ header {
     border: 1px solid blue;
 }
 
-.card img {
-    object-fit: contain;
+.card #poster {
+    width: 342px;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
 }
 
 .fas.fa-star {
