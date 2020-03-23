@@ -9,8 +9,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
-    padding: 0 10px;
+    height: 60px;
+    padding: 0 15px;
 }
 
 header .logo-block h2 {
@@ -18,37 +18,48 @@ header .logo-block h2 {
     color: red;
 }
 
-#card-container {
-    overflow-x: auto;
-    min-width: 100vw;
-    display: flex;
-    margin: 0 20px;
+#input-search {
+    width: 160px;
+    padding: 5px;
+    border-radius: 3px;
 }
-
-
 
 #submit-search {
     background-color: white;
     border-radius: 5px;
     padding: 10px;
+    margin-left: 10px;
+}
+
+.container {
+    background-color: #808080;
+    height: 100vh;
+    min-width: 100vw;
+}
+
+#card-container {
+    overflow-x: auto;
+    display: flex;
+    padding: 0 20px;
 }
 
 
 .card {
-
     width: 360px;
     margin: 10px;
-    border: 1px solid blue;
 }
 
 .card #poster {
     width: 342px;
-    height: 100%;
-    object-fit: cover;
+    height: 400px;
+
+    vertical-align: bottom;
+
 }
 
 .card .poster-block {
     position: relative;
+    border: 1px solid white;
 }
 
 .card .card-details-block {
@@ -69,11 +80,13 @@ header .logo-block h2 {
 
 .details-data {
     font-size: 16px;
+    color: silver;
 }
 
 .details-title {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
+    color: white;
 }
 
 .poster-block:hover .card-details-block {

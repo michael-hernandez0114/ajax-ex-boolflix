@@ -71,6 +71,7 @@ $(document).ready(function() {
                                 titoloOriginale: resultsObj[i].original_title,
                                 lingua: languageOrFlag(resultsObj[i].original_language),
                                 voto: showStelle(resultsObj[i].vote_average),
+                                overview: resultsObj[i].overview
                             }
                 //console.log("Adding this film obj:" + filmObj);
                 //console.log("filmObj voto has: " + filmObj.voto);
@@ -87,6 +88,7 @@ $(document).ready(function() {
                                 titoloOriginale: resultsObj[i].original_name,
                                 lingua: languageOrFlag(resultsObj[i].original_language),
                                 voto: showStelle(resultsObj[i].vote_average),
+                                overview: resultsObj[i].overview
                             }
                 //console.log("Adding this tv obj:" + tvObj);
                 //console.log("tvObj voto has: " + tvObj.voto);
