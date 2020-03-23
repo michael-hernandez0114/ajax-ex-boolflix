@@ -5,8 +5,27 @@
 }
 
 header {
-    background-color: darkgray;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
 }
+
+header .logo-block h2 {
+    text-transform: uppercase;
+    color: red;
+}
+
+#card-container {
+    overflow-x: auto;
+    min-width: 100vw;
+    display: flex;
+    margin: 0 20px;
+}
+
+
 
 #submit-search {
     background-color: white;
@@ -16,8 +35,8 @@ header {
 
 
 .card {
-    display: flex;
-    flex-direction: column;
+
+    width: 360px;
     margin: 10px;
     border: 1px solid blue;
 }
@@ -26,7 +45,41 @@ header {
     width: 342px;
     height: 100%;
     object-fit: cover;
+}
+
+.card .poster-block {
+    position: relative;
+}
+
+.card .card-details-block {
+    position: absolute;
+    top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: black;
+    padding: 20px 10px;
+    color: white;
+}
+
+.card-details-block img {
+    vertical-align: middle;
+}
+
+.details-data {
+    font-size: 16px;
+}
+
+.details-title {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.poster-block:hover .card-details-block {
+
+    display: flex;
+    flex-direction: column;
 }
 
 .fas.fa-star {

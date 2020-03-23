@@ -24,7 +24,7 @@ $(document).ready(function() {
     $('#submit-search').click(function(event){
         var searchInput = $('#input-search').val();
 
-        if(searchInput > 0) {
+        if(searchInput.length > 0) {
             $('#card-container').empty();
             $('#input-search').val('');
             search('movie', searchInput);

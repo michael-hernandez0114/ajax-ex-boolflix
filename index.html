@@ -11,8 +11,14 @@
     <body>
 
         <header>
-            <input id="input-search" placeholder="Search for films or tv shows">
-            <button id="submit-search">Submit</button>
+            <div class="logo-block">
+                <h2>Boolflix</h2>
+            </div>
+            <div class="search-block">
+                <input id="input-search" value="ritorno al futuro" placeholder="Search for films or tv shows">
+                <button id="submit-search">Submit</button>
+            </div>
+
         </header>
         <div id="card-container">
 
@@ -22,11 +28,16 @@
 
         <script id="card-template" type="text/x-handlebars-template">
             <div class="card">
-                <img id="poster" src="{{posterURL}}" alt="">
-                <span>{{titolo}}</span>
-                <span>{{titoloOriginale}}</span>
-                <span>{{{lingua}}}</span>
-                <span>{{{voto}}}</span>
+                <div class="poster-block">
+                    <img id="poster" src="{{posterURL}}" alt="">
+                    <div class="card-details-block">
+                        <span class="details-data"><span class="details-title">Titolo:</span> {{titolo}}</span>
+                        <span class="details-data"><span class="details-title">Titolo Originale:</span> {{titoloOriginale}}</span>
+                        <span class="details-data"><span class="details-title">Lingua:</span> {{{lingua}}}</span>
+                        <span class="details-data"><span class="details-title">Voto:</span> {{{voto}}}</span>
+                    </div>
+                </div>
+
 
             </div>
 
