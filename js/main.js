@@ -158,6 +158,7 @@ $(document).ready(function() {
         var filmTVLang;
         var htmlToDisplay;
         var flagURL;
+        var missingLang = ['xx','ko'];
 
         if(lang === 'en') {
             filmTVLang = 'us';
@@ -166,7 +167,7 @@ $(document).ready(function() {
             filmTVLang = lang;
         }
 
-        if(filmTVLang === 'xx') {
+        if(missingLang.includes(filmTVLang)) {
             htmlToDisplay = filmTVLang;
         }
         else {
