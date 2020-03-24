@@ -40,19 +40,19 @@ header .logo-block h2 {
 #card-container {
     overflow-x: auto;
     display: flex;
-    padding: 0 20px;
+    margin: 0 20px;
 }
 
 
 .card {
     width: 360px;
     margin: 10px;
+
 }
 
 .card #poster {
     width: 342px;
     height: 400px;
-
     vertical-align: bottom;
 
 }
@@ -72,6 +72,7 @@ header .logo-block h2 {
     background-color: black;
     padding: 20px 10px;
     color: white;
+    overflow-y: auto;
 }
 
 .card-details-block img {
