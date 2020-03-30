@@ -44,8 +44,8 @@ $(document).ready(function() {
             url : baseURL + '/search/' + category,
             data: {
                 api_key: 'b1bf34ce942f162a150cd71faf814c6d',
-                query: searchFilter,
-                language: 'it-IT'
+                query: searchFilter//,
+                //language: 'it-IT'
             },
             method : 'GET',
             success: function(data) {
