@@ -10,4 +10,14 @@ A web app that is meant to return films and TV series based on the input in the 
 
 ![GitHub Logo](/img/beforeSearch.png)
 
-### Search input and results
+### Search input
+
+![GitHub Logo](/img/sampleSearch.png)
+
+### Search Result
+
+![GitHub Logo](/img/afterSearch.png)
+
+### Hover Over Individual Film/TV Series
+
+![GitHub Logo](/img/hoverOverCard.png)
