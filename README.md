@@ -38,6 +38,6 @@ Using enter or the Submit button will display the results. Search criteria will 
 
 ### Hover Over Individual Film/TV Series
 
-Hover over each item to see details such as description and rating.
+Hover over each item to see details such as an overview and rating.
 
 ![GitHub Logo](/img/hoverOverCard.png)
