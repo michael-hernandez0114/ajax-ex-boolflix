@@ -13,7 +13,7 @@ A web app that is meant to return films and TV series based on the input in the 
 
 ## About the Data
 
-Data used to display the search results were all provided by the.moviedb.org and the documentation surrounding the API can be found here [GitHub] (https://www.themoviedb.org/documentation/api)
+Data used to display the search results were all provided by the.moviedb.org and the documentation surrounding the API can be found [here](https://www.themoviedb.org/documentation/api).
 
 
 ## Screenshots
