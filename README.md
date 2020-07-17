@@ -8,6 +8,6 @@ A web app that is meant to return films and TV series based on the input in the 
 
 ### First time reaching the App
 
-![GitHub Logo](/images/beforeSearch.png)
+![GitHub Logo](/img/beforeSearch.png)
 
 ### Search input and results
